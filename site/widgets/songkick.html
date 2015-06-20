@@ -1,0 +1,28 @@
+<script>
+
+$.getJSON("http://api.songkick.com/api/3.0/artists/4128126/calendar.json?apikey=whjuJjMC4pFRU3Jm&jsoncallback=?",
+function(data){
+   var events = data['resultsPage']['results']['event'];
+   for (var i=0;i < events.length; i++) {
+     // here you can add the event title to an element like so:
+     $("#events").append('<li class="clearfix"><a href="' 
+	 					+ events[i]['uri'] 
+						+ '"><span class="date">' 
+						+ events[i]['start']['date'] 
+						+ '</span><span class="displayName">' 
+						+ events[i]['displayName'] 
+						+ '</span><span class="venue">'
+						+ events[i]['venue']['displayName']
+						+ '</span><span class="city">' 
+						+ events[i]['location']['city']  
+						+ '</span></a></li>');
+    };
+	console.log('INIT SongKick');
+});
+
+
+</script>
+
+<div id="events">
+test
+</div>

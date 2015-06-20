@@ -18,10 +18,16 @@
                 controller  : 'mainController'
             })
 
-            // route for the about page
+            // route for the about page 
             .when('/band', {
                 templateUrl : 'pages/band.html',
                 controller  : 'bandController'
+            })
+
+            // route for the tour page
+            .when('/media', {
+                templateUrl : 'pages/media.html',
+                controller  : 'mediaController'
             })
 
             // route for the contact page
@@ -30,29 +36,33 @@
                 controller  : 'contactController'
             })
 
-            // route for the contact page
-            .when('/example', {
-                templateUrl : 'pages/example.html',
-                controller  : 'exampleController'
+            .otherwise({
+                 redirectTo: '/',
+                 controller: 'mainController'
             });
+
+
     });
 
     // create the controller and inject Angular's $scope
     bandApp.controller('mainController', function($scope) {
         // create a message to display in our view
+        $scope.title = 'This is a new title';
         $scope.pageClass = 'page-home';
-        $scope.message = 'Everyone come and see how good I look!';
     });
 
     bandApp.controller('bandController', function($scope) {
     	$scope.pageClass = 'page-band';
-        $scope.message = 'Look! I am an about page.';
+        $scope.member1 = 'ritchie';
+        $scope.member2 = 'mart';
+        $scope.member3 = 'pez';
+        $scope.member4 = 'matthijs';
+    });
+
+    bandApp.controller('mediaController', function($scope) {
+        $scope.pageClass = 'page-media';
     });
 
     bandApp.controller('contactController', function($scope) {
     	$scope.pageClass = 'page-contact';
-        $scope.message = 'Contact us! JK. This is just a demo.';
-    });
-    bandApp.controller('exampleController', function($scope) {
-        $scope.pageClass = 'page-example';
     });

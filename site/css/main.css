@@ -194,7 +194,7 @@ textarea {
         
         header .hamburger{
             display: none;
-            position: absolute;
+            position: fixed;
             top:0; right:0;
             z-index: 99999;
         }
@@ -291,16 +291,18 @@ textarea {
     ============================================================================= */
     .page-home{     background-image:url('../img/tts-band.jpg');}
     .page-band{     background-image:url('../img/tts-bg5.jpg'); background-position: bottom center;}
+    .page-tour{     background-image:url('../img/tts-bg.gif');}
+    .page-media{    background-image:url('../img/tts-bg4.jpg');}
     .page-contact{  background-image:url('../img/tts-bg2.jpg');}
-    .page-example{  background-image:url('../img/tts-bg4.gif');}
 
     .page-home     .container { background-color:rgba(0,0,0,0.1); color:#fff; }
     .page-band     .container { background-color:rgba(0,0,0,0.8); color:#fff; }
+    .page-tour     .container { background-color:rgba(0,0,0,0.5); color:#fff;}
+    .page-media    .container { background-color:rgba(100,0,100,0.3); color:#fff;}
     .page-contact  .container { background-color:rgba(0,0,0,0.8); color:#fff; }
-    .page-example  .container { background-color:rgba(255,0,0,0.3); color:#fff;}
-
 
     .portraits{
+        margin-bottom: 20px;
     }
     .portraits .portrait{
         padding: 2px;
@@ -312,15 +314,16 @@ textarea {
         bottom: 0;
         width: 100%;
         text-transform: uppercase;
-        font-size: 2em;
+        font-size: 1.6em;
         opacity: 0;
         transition:0.2s;
         transform: translate3d(0,20px,0);;
         background:rgba(0,0,0,0.8);
-        padding: 20px;
+        padding: 20px 0;
+        text-decoration: center;
         box-shadow: 0 0 20px rgba(0,0,0,0.8);
     }
-        .portraits .img-container:hover h2{
+        .portraits .img-container:hover h2, .portraits .portrait.active .img-container h2{
             opacity: 1;
             transform: translate3d(0,0,0);;
         }
@@ -337,10 +340,15 @@ textarea {
                 filter: gray; /* IE6-9 */
                 -webkit-filter: grayscale(100%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
             }
-            .portraits .img-container:hover > img{
+            .portraits .img-container:hover > img, .portraits .portrait.active .img-container > img{
                 transform: scale(1);
                 filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
                 -webkit-filter: grayscale(0%);
+            }
+
+            .member-info{
+                display: none;
+                padding: 20px 20px 200px 20px;
             }
 
     /* PAGE ANIMATIONS
@@ -471,18 +479,33 @@ textarea {
         position: fixed;
         top: 100%; left: 0;
         width: 100%;
-        height: auto;
+        height: 100%;
         padding-bottom: 42px;
-        background:rgba(48,48,48,0.95);
+        background:rgba(48,48,48,0.98);
         z-index: 88888;
         cursor:pointer;
         -webkit-transform: translate3d(0, -42px, 0);
         transition:0.5s;
     }
-        .fixedBar:hover + .hoverBar,
-        .hoverBar:hover{
+
+        .hoverBar.active{
             cursor: auto;
             -webkit-transform: translate3d(0, -100%, 0);
+        }
+
+       .hoverBar .closeEvents{
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            background-color:rgba(0,0,0,0.5);
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .hoverBar h1{
+            color: #fff;
+            text-align: center;
         }
     
 
@@ -583,7 +606,7 @@ textarea {
             height: 50px;
             text-align: center;
             transition: height 0s 0.8s, background 0.5s 0.3s;
-            pointer-events:;
+            pointer-events:auto;
         }
             header.active{
                 height: 100%;
@@ -661,7 +684,7 @@ textarea {
         }
     
         .page .container{
-            padding: 80px 20px;
+            padding: 50px 20px 80px;
         }
 
         .jumbotron h1, .jumbotron .h1{
@@ -681,11 +704,30 @@ textarea {
         .fixedBar .hoverAction{
             padding: 5px 10px;
         }
+
+        .member-info{
+            padding: 0;
+        }
+            .member-info p{
+                padding: 10px;
+                
+            }
+        .portraits h2{
+            font-size: 1em;
+        }
     
     }
     @media only screen and (max-width: 768px) and (orientation: landscape){
 
     }
+
+    @media only screen and (max-width: 300px) {
+        .music{
+            display: none;
+        }
+    }
+
+
 
 @media only screen and (min-width: 35em) {
     /* Style adjustments for viewports that meet the condition */
