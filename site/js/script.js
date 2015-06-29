@@ -30,6 +30,12 @@
                 controller  : 'mediaController'
             })
 
+            // route for the tour page
+            .when('/tour', {
+                templateUrl : 'pages/tour.html',
+                controller  : 'tourController'
+            })
+
             // route for the contact page
             .when('/contact', {
                 templateUrl : 'pages/contact.html',
@@ -58,6 +64,11 @@
         $scope.member3 = 'pez';
         $scope.member4 = 'matthijs';
     });
+
+    bandApp.controller('tourController', function($scope) {
+        $scope.pageClass = 'page-tour';
+    });
+
 
     bandApp.controller('mediaController', function($scope) {
         $scope.pageClass = 'page-media';
