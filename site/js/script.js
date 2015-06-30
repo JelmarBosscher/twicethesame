@@ -9,36 +9,36 @@
 
             // route for the home page
             .when('/', {
-                templateUrl : 'pages/home.html',
+                templateUrl : 'site/pages/home.html',
                 controller  : 'mainController'
             })
 
             .when('/home', {
-                templateUrl : 'pages/home.html',
+                templateUrl : 'site/pages/home.html',
                 controller  : 'mainController'
             })
 
             // route for the about page 
             .when('/band', {
-                templateUrl : 'pages/band.html',
+                templateUrl : 'site/pages/band.html',
                 controller  : 'bandController'
             })
 
             // route for the tour page
             .when('/media', {
-                templateUrl : 'pages/media.html',
+                templateUrl : 'site/pages/media.html',
                 controller  : 'mediaController'
             })
 
             // route for the tour page
             .when('/tour', {
-                templateUrl : 'pages/tour.html',
+                templateUrl : 'site/pages/tour.html',
                 controller  : 'tourController'
             })
 
             // route for the contact page
             .when('/contact', {
-                templateUrl : 'pages/contact.html',
+                templateUrl : 'site/pages/contact.html',
                 controller  : 'contactController'
             })
 
